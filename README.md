@@ -1,7 +1,47 @@
 # Vigilantes da Luz — monitoramento de interrupções no RJ
 
-Mapa interativo dos locais que ficaram sem luz após o temporal de 7 de novembro de 2026, em todo o estado do Rio de Janeiro. Base de pontos revisada em 19/11/2026; triagem de pistas e monitoramento atualizados em 19/11/2026.
+Mapa interativo dos locais que ficaram sem luz após o temporal de 7 de novembro de 2026, em todo o estado do Rio de Janeiro. Base de pontos revisada em 19/11/2026; triagem de pistas e monitoramento atualizados em 22/11/2026.
 
+
+## Atualização matinal — 22/11/2026 (08h14 BRT)
+
+**Resultado cartográfico:** nenhum novo ponto confirmado. A busca identificou novas reclamações e um endereço numerado na Tijuca, mas não foi possível obter coordenada específica e verificável do imóvel/trecho. O Top 20, `dados/pontos.csv`, `dados/pontos.geojson`, `dados/resumo_por_municipio.csv` e `index.html` foram preservados.
+
+### Novas pistas publicadas após 21/11 às 08h29
+
+- **Tijuca — Rua Araújo Pena, nº 83 (poste em frente ao Edifício Maria Eduarda):** reclamação publicada em 21/11 às 18h18 diz que houve furto de cabo às 17h de 19/11 e que o prédio ficou parcialmente sem energia. O número 83 foi corroborado por listagens do edifício e por página que usa dados de ITBI/IPTU/cadastro municipal. Não foi obtida coordenada específica do prédio. O CEP do logradouro oferece apenas uma coordenada aproximada de rua (`-22.9227, -43.21954`), que não foi usada. Prioridade alta para geocodificação de endereço numerado; não inserir no mapa ainda.
+- **Tijuca — Rua Araújo Pena / Largo da Segunda-Feira:** busca retrospectiva encontrou outra reclamação, publicada em 19/11 às 23h47, que menciona furto de cabo e quase 20h sem energia. Está fora da janela de novas publicações; foi registrada como pista histórica relacionada, mas não fundida com o relato do nº 83 porque os horários descritos não coincidem.
+- **Méier:** reclamação de 21/11 às 18h34 diz que um prédio inteiro estava sem energia desde 02h, após vandalismo alegado em poste. Mais de 50 chamados são mencionados; sem rua ou número.
+- **Niterói:** duas reclamações Enel em 21/11 às 22h47 e 23h05 descrevem falta de energia desde o dia anterior e interrupções em dois dias consecutivos. Podem se referir ao mesmo agrupamento; endereços mascarados e sem coordenadas, por isso não foram contadas como dois eventos distintos.
+- **Valença — área rural:** reclamação Light publicada em 22/11 às 07h46 informa mais de 12h sem energia após chuva e afirma que episódios semelhantes podem levar mais de 48h para atendimento. Sem localidade ou logradouro.
+- **Magé:** reclamação Enel publicada em 21/11 às 10h35 relata mais de 24h sem energia e falta d'água, mas não informa bairro/rua nem comprova alcance coletivo.
+- **Rio de Janeiro (capital):** novas reclamações Light relatam vizinhos com fornecimento em apenas uma fase desde 11/11, baixa tensão em vários imóveis ao longo de uma rua (endereço mascarado), oscilações recorrentes em residência e interrupções individuais prolongadas. Sem bairro/logradouro ou coordenadas; há possível sobreposição entre relatos genéricos da capital.
+- **Recorrência Enel na capital:** reclamação publicada em 21/11 às 13h07 fala em faltas semanais em condomínio, mas o último evento específico reproduzido no texto tem previsão de restabelecimento em 12/11. Foi guardada como contexto de recorrência, não como novo evento.
+- **Pistas individuais:** foram preservadas reclamações de Magé e da capital sem evidência de imóveis vizinhos; permanecem fora do mapa.
+
+### Snapshot operacional — Enel Rio
+
+A API pública do agregador Powercut, consultada às **08h10:13 BRT de 22/11**, indicava o feed `br-enel-rj` com **127 ocorrências**, `ok=true` e `stale=false`. Esse é o contador de ocorrências do feed, não de clientes afetados. O snapshot de página estadual disponível às 05h20 informava 127 faltas e 5.325 clientes, mas não deve ser tratado como fotografia das 08h10. O agregador não lista a Light como fonte; não cobre a capital pela fonte Enel Rio e não fornece coordenadas individuais neste endpoint.
+
+### Qualidade e cobertura das fontes
+
+- **Enel oficial:** página do Mapa da Energia acessível, com mapa dinâmico; a extração textual consultada ainda mostrava “Buscando áreas de falta de energia” e tabela sem linhas preenchidas. A página alerta que o número pode incluir desligamentos momentâneos inferiores a três minutos e refletir manobras operacionais.
+- **Light oficial:** Mapa de Ocorrências Emergenciais acessível, mas sem linhas de texto extraíveis nesta consulta.
+- **ANEEL:** não foi localizada nova publicação de fiscalização ou base georreferenciada de eventos diários para 21–22/11. DEC/FEC seguem sendo indicadores agregados por conjuntos de unidades consumidoras, com atualização defasada; não localizam rua/quarteirão em tempo real.
+- **Prefeituras, Defesa Civil, Procons e imprensa local:** não foi localizada nova publicação com endereço e coordenadas verificáveis na janela pesquisada.
+- **Reclame Aqui:** trouxe sinais úteis e horários de publicação, mas a maioria dos endereços está mascarada; reclamações individuais não comprovam interrupção coletiva.
+
+### Auditoria da base
+
+- 120 pontos no CSV e 120 feições no GeoJSON.
+- 96 posições marcadas como conferidas; isso não significa que todas tenham precisão de quarteirão.
+- Precisão declarada: 24 registros rua, 15 ponto e 81 bairro.
+- Nenhuma coordenada foi criada ou alterada; Top 20 preservado.
+- 12 novos registros de pista/qualidade publicados após a atualização anterior, 1 pista retrospectiva da Tijuca e 1 snapshot operacional foram acrescentados a `dados/pistas_nao_verificadas.csv`. Todos permanecem fora da camada cartográfica.
+
+**PDF:** não gerado nesta rodada porque nenhum novo ponto cumpriu simultaneamente os critérios de endereço verificável e coordenadas específicas verificáveis. O relatório de investigação está nesta seção e no CSV de pistas.
+
+---
 
 ## Atualização matinal — 21/11/2026 (08h29 BRT)
 
