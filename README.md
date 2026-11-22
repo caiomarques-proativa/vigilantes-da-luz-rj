@@ -3,6 +3,22 @@
 Mapa interativo dos locais que ficaram sem luz após o temporal de 7 de novembro de 2026, em todo o estado do Rio de Janeiro. Base de pontos revisada em 19/11/2026; triagem de pistas e monitoramento atualizados em 22/11/2026.
 
 
+## Verificação complementar — 22/11/2026 (09h12 BRT)
+
+**Resultado:** nenhum novo ponto confirmado e nenhuma nova pista coletiva com endereço/quarteirão identificável desde a atualização das 08h14. O Top 20 e a camada cartográfica permanecem inalterados.
+
+- **Nova pista individual — Light, município do Rio de Janeiro:** reclamação publicada em 21/11 às 18h33 relata cerca de três dias sem energia na residência do consumidor e aproximadamente dez contatos com a concessionária. Não informa bairro, rua, vizinhos atingidos ou coordenadas. Foi acrescentada a `dados/pistas_nao_verificadas.csv` exclusivamente para auditoria; não é ocorrência coletiva comprovada e não deve ser mapeada.
+- **Triagem negativa — Enel, município do Rio de Janeiro:** reclamação publicada em 22/11 às 00h46 contém apenas manifestação genérica de insatisfação e a frase “ficar sem luz”, sem descrever episódio, data de início, duração, bairro, rua ou extensão. Não foi adicionada à base para evitar transformar desabafo sem ocorrência identificável em evidência.
+- **Pistas anteriores verificadas contra duplicidade:** a reclamação da Light sobre baixa tensão em vários imóveis de uma rua (publicada em 21/11 às 22h19), a reclamação sobre vizinhos com apenas uma fase desde 11/11 (21/11 às 16h12), o relato de oscilações com quatro solicitações (21/11 às 23h05), o caso da Tijuca/Rua Araújo Pena, nº 83, e a pista rural de Valença já constam da triagem de 08h14. Não foram duplicados.
+- **Sinal operacional:** a página estadual do Powercut continua exibindo o retrato de **21/11 às 08h20: 173 faltas e 3.049 clientes**, portanto está defasada para esta verificação. A base do projeto já guarda o snapshot separado do feed `br-enel-rj` de **22/11 às 08h10:13 BRT, 127 ocorrências**, que é contagem de eventos do feed, não de clientes. Não foi possível obter um novo retrato verificável às 09h12; não apresentamos esses números como situação atual.
+- **Fontes primárias:** o mapa da Enel abriu, mas permaneceu em “Buscando áreas de falta de energia”, sem tabela preenchida na extração textual; a própria página alerta que pode incluir interrupções momentâneas inferiores a três minutos. O mapa da Light abriu sem conteúdo textual legível. Não foi encontrada nesta rodada nova publicação oficial de prefeitura, Defesa Civil, Procon ou ANEEL com endereço e coordenadas de quarteirão.
+- **Deduplicação da base principal:** `dados/pontos.csv` permanece com 120 registros e `dados/pontos.geojson` com 120 feições. A auditoria existente indica 24 registros com precisão declarada como rua, 15 como ponto e 81 como bairro; as 96 posições marcadas como conferidas não significam 96 endereços de quarteirão. Nenhuma coordenada, foto, fluxo ou recorrência foi inventada.
+- **Arquivos:** `dados/pistas_nao_verificadas.csv` recebeu uma linha individual, explicitamente fora do mapa. `dados/pontos.csv`, `dados/pontos.geojson`, `dados/resumo_por_municipio.csv` e `index.html` foram preservados. Raio de 2 km e Top 20 não recalculados. **PDF não regenerado**, pois nenhum ponto definitivo novo foi aprovado.
+
+Fontes: [reclamação Light — três dias sem energia em residência](https://www.reclameaqui.com.br/light-servicos-de-eletricidade/estou-ha-3-dias-sem-luz-e-a-light-nao-resolve-meu-problema_lq5NVyyWpmGbOKu0/); [reclamação Enel — manifestação genérica de 22/11](https://www.reclameaqui.com.br/enel-distribuicao-rio/minha-conta-de-luz-so-aumenta-e-o-servico-esta-cada-dia-pior_8009DNAPCQbKYdXp/); [Powercut — Estado do RJ](https://powercut.io/br/estado-do-rio-de-janeiro/); [Powercut — metadados do feed](https://powercut.io/api/now.json); [Mapa da Enel](https://www.enel.com.br/pt/Informativos/mapa-falta-de-luz.html); [Mapa de Ocorrências Emergenciais da Light](https://mapa-ocorrencias.light.com.br/); [ANEEL — interrupções nas redes de distribuição](https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao).
+
+---
+
 ## Atualização matinal — 22/11/2026 (08h14 BRT)
 
 **Resultado cartográfico:** nenhum novo ponto confirmado. A busca identificou novas reclamações e um endereço numerado na Tijuca, mas não foi possível obter coordenada específica e verificável do imóvel/trecho. O Top 20, `dados/pontos.csv`, `dados/pontos.geojson`, `dados/resumo_por_municipio.csv` e `index.html` foram preservados.
